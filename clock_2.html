@@ -4,20 +4,45 @@
     <meta charset="UTF-8">
     <title>canvas_time</title>
     <style type="text/css">
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: rgb(199, 237, 204);
+        /*color:white;*/
+        text-shadow: 0 0 .5rem black;
+    }
     div {
         text-align: center;
-        margin-top: 50px;
+        /*margin-top: 50px;*/
     }
     #clock {
-        border: 1px solid #cccccc;
+        /*border: 1px solid #cccccc;*/
+    }
+    #main{
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
     }
     </style>
 </head>
 <body>
+<button onclick="onSound()">开启/关闭声音</button>
+
+<audio id="audio" src="clock_tiktok.mp3"></audio>
+<div id="main">
     <div>
-        <canvas id="clock" height="300px" width="300px"></canvas>
+        <canvas id="clock" height="480px" width="480px"></canvas>
     </div>
+</div>
     <script type="text/JavaScript" >
+
+const audio = document.querySelector('audio');
+let sound = false
+const onSound = () => {
+    sound = !sound
+}
+
 var dom = document.getElementById('clock');
 var ctx = dom.getContext('2d');
 var width = ctx.canvas.width;
@@ -37,24 +62,25 @@ function drawBackground() {
     ctx.textBaseline = "middle";
        hourNumbers.forEach(function(number, i) {
         var rad = 2 * Math.PI / 12 * i;
-        var x = Math.cos(rad) * (r - 30*rem);
-        var y = Math.sin(rad) * (r - 30*rem);
+        var x = Math.cos(rad) * (r - 23*rem);
+        var y = Math.sin(rad) * (r - 23*rem);
         ctx.fillText(number, x, y);
     });
-    for (var i = 0; i < 60; i++) {
-        var rad = 2 * Math.PI / 60 * i;
-        var x = Math.cos(rad) * (r - 18*rem);
-        var y = Math.sin(rad) * (r - 18*rem);
-        ctx.beginPath();
-        if (i % 5 === 0) {
-            ctx.arc(x, y, 2*rem, 0, 2 * Math.PI, false);
-            ctx.fillStyle = "#000";
-        } else {
-            ctx.arc(x, y, 2*rem, 0, 2 * Math.PI, false);
-            ctx.fillStyle = "#ccc";
-        }
-        ctx.fill();
-    }
+
+    // for (var i = 0; i < 60; i++) {
+    //     var rad = 2 * Math.PI / 60 * i;
+    //     var x = Math.cos(rad) * (r - 18*rem);
+    //     var y = Math.sin(rad) * (r - 18*rem);
+    //     ctx.beginPath();
+    //     if (i % 5 === 0) {
+    //         ctx.arc(x, y, 2*rem, 0, 2 * Math.PI, false);
+    //         ctx.fillStyle = "#000";
+    //     } else {
+    //         ctx.arc(x, y, 2*rem, 0, 2 * Math.PI, false);
+    //         ctx.fillStyle = "#ccc";
+    //     }
+    //     ctx.fill();
+    // }
 }
     function drawHour(hour, minute) {
         ctx.save();
@@ -62,7 +88,7 @@ function drawBackground() {
         var rad = 2 * Math.PI / 12 * hour;
         var mrad = 2 * Math.PI / 12 / 60 * minute;
         ctx.rotate(rad + mrad);
-        ctx.lineWidth = 6*rem;
+        ctx.lineWidth = 5*rem;
         ctx.lineCap = "round";
         ctx.moveTo(0, 10*rem);
         ctx.lineTo(0, -r / 2);
@@ -101,6 +127,9 @@ function drawBackground() {
         ctx.fill();
     }
     function draw01() {
+        // 开启/关闭声音
+        sound && audio.play()
+
         ctx.clearRect(0, 0, width, height);
         var now = new Date();
         var hour = now.getHours();
