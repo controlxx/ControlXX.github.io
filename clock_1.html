@@ -52,7 +52,7 @@
             width: 300px;
             height:300px;
             font-size: 15px;
-            
+
             /* border: 1px solid blue; */
             /* border-radius: 280px; */
 
@@ -127,7 +127,7 @@
         }
         .num6{
             position: absolute;
-            bottom:0px; 
+            bottom:0px;
             left:135px;
         }
         .num9{
@@ -142,7 +142,7 @@
 
     <button onclick="onSound()">开启/关闭声音</button>
 
-    <audio id="audio" src="https://appmail.mail.10086.cn/RmWeb/view.do?func=attach%3Adownload&mid=7207ce0e96c623580000001e&offset=1571&size=43508&sid=00Y5MDQ0MjE5NjAwMTEyNTQ001DA07A8000002&type=attach&encoding=1&name=di.mp3"></audio>
+    <audio id="audio" src="clock_tiktok.mp3"></audio>
     <div id="main">
         <div class="clock">
             <div class="hour-hand hand"></div>
@@ -188,7 +188,7 @@
             const second = time.getSeconds();
             const secondDeg = parseInt(second/60*360)+90;
             secondHand.style.transform = `rotate(${secondDeg}deg)`;
-            
+
 
             const minute= time.getMinutes();
             const minuteDeg = parseInt(minute/(60)*360+second/10)+90;
@@ -197,15 +197,15 @@
             const hour= time.getHours();
             const hourDeg = parseInt(hour/(12)*360+minute/(60)*30)+90;
             hourHand.style.transform = `rotate(${hourDeg}deg)`;
-            
+
 
         }
 
         // 设置定时器美隔一秒时间进行刷新页面
         setInterval(setDate,1000);
-        // 
-        
-        
+        //
+
+
 
         setDate(); // 当指针转一圈后，重置度数
 
