@@ -102,10 +102,11 @@ body {
 }
 
 .second-hand {
-	width: 2px;
-	height: 164px;
+	width: 10px;
+	height: 10px;
+    border-radius: 10px;
 	background: #fa9f22;
-	transform: translate(-50%, -100%) translateY(24px)
+	transform: translate(-50%, -100%) translateY(-118px)
 }
 
 .hour {
@@ -121,7 +122,7 @@ body {
 
 .fat-hand {
 	width: 10px;
-	height: 57px;
+	height: 77px;
 	border-radius: 10px;
 	background: #fff;
 	transform: translate(-50%, -100%) translateY(-18px)
@@ -134,7 +135,7 @@ body {
 .hour-text {
 	position: absolute;
 	font: 40px Hei, Helvetica, Arial, sans-serif;
-	color: #fff;
+	/*color: #fff;*/
 	transform: translate(-50%, -50%)
 }
 
@@ -194,7 +195,7 @@ function utilityClock(container) {
 	var minuteElement = container.querySelector('.minute')
 	var secondElement = container.querySelector('.second')
 	var minute = function(n) {
-		return n % 5 == 0 ? minuteText(n) : minuteLine(n)
+		return minuteLine(n)
 	}
 	var minuteText = function(n) {
 		var element = document.createElement('div')
