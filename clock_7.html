@@ -8,7 +8,7 @@
 <meta name="viewport"  content="width=device-width, initial-scale=1" />
 <title>桌面时钟_在线极简时钟同步</title>
 <meta name="keywords" content="桌面时钟,在线时钟,极简时钟,时钟同步" />
-<meta name="description" content="北京时间网提供桌面时钟，在线极简同步时钟。" />
+<meta name="description" content="北京时间网提供桌面时钟，在线极简同步时钟。(网址访问：http://www.beijing-time.org/shizhong.html)" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 a:link {
@@ -138,7 +138,7 @@ body {
 .hour-text {
 	position: absolute;
 	font: 40px Hei, Helvetica, Arial, sans-serif;
-	/*color: #fff;*/
+	color: #fff;
 	transform: translate(-50%, -50%)
 }
 
@@ -222,7 +222,7 @@ function utilityClock(container) {
 		element.className = 'hour-text hour-' + n
 		element.innerHTML = n
 		position(element, n / 12, 105)
-		dynamic.appendChild(element)
+		// dynamic.appendChild(element)
 	}
 	var position = function(element, phase, r) {
 		var theta = phase * 2 * Math.PI
