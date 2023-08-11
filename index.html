@@ -25,7 +25,10 @@ a:active {
 }
 </style>
 </head> 
-<body> 
+<body>
+<button onclick="onSound()">开/关声音</button>
+<audio id="audio" src="clock_tiktok.mp3"></audio>
+
 <p>
   <style>
 body {
@@ -189,6 +192,17 @@ body {
 </div>
 </div>
 <script>
+const audio = document.querySelector('audio');
+let sound = false
+const onSound = () => {
+  sound = !sound
+}
+
+// 设置定时器每隔一秒时间执行一次
+setInterval(function () {
+  sound && audio.play()  // 开启/关闭声音
+}, 1000);
+
 var clock = document.querySelector('#utility-clock')
 utilityClock(clock)
 if (clock.parentNode.classList.contains('fill')) autoResize(clock, 295 + 32)
