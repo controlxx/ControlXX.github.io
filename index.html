@@ -27,7 +27,6 @@ a:active {
 </head> 
 <body>
 <button onclick="onSound()">开/关声音</button>
-<audio id="audio" src="clock_tiktok.mp3"></audio>
 
 <p>
   <style>
@@ -192,7 +191,8 @@ body {
 </div>
 </div>
 <script>
-const audio = document.querySelector('audio');
+let audio = new Audio('./clock_tiktok.mp3')
+audio.loop = false
 let sound = false
 const onSound = () => {
   sound = !sound
