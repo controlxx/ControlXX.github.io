@@ -200,7 +200,7 @@ body {
 </div>
 <script>
 let audio = new Audio('./clock_tiktok.mp3')
-audio.loop = false
+audio.loop = true
 let sound = false
 const onSound = () => {
   sound = !sound
@@ -208,7 +208,10 @@ const onSound = () => {
 
 // 设置定时器每隔一秒时间执行一次
 setInterval(function () {
-  sound && audio.play()  // 开启/关闭声音
+  if (sound == false) {
+    audio.pause()   //暂停音频
+  }
+  sound && audio.play()  //播放音频
 }, 1000);
 
 var clock = document.querySelector('#utility-clock')
