@@ -24,17 +24,18 @@ a:active {
 	color: #FFF;
 }
 
-button {
-  border: 0;
-  outline: none;
-  background: #000;
-  color: rgb(170, 170, 170);
+img {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
 
 </style>
 </head> 
 <body>
-<button onclick="onSound()">开/关声音</button>
+<img onclick="onSound()" src="clock_tiktok_img.png" alt="">
 
 <p>
   <style>
@@ -213,6 +214,7 @@ setInterval(function () {
   }
   sound && audio.play()  //播放音频
 }, 1000);
+
 
 var clock = document.querySelector('#utility-clock')
 utilityClock(clock)
