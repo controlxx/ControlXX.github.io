@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta name="applicable-device" content="pc,mobile">
 <meta name="viewport"  content="width=device-width, initial-scale=1" />
-<title>桌面时钟_在线极简时钟同步</title>
+<title>冥想时钟</title>
 <meta name="keywords" content="桌面时钟,在线时钟,极简时钟,时钟同步" />
 <meta name="description" content="北京时间网提供桌面时钟，在线极简同步时钟。(网址访问：http://www.beijing-time.org/shizhong.html)" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -35,12 +35,13 @@ img {
 </style>
 </head> 
 <body>
-<img onclick="onSound()" src="clock_tiktok_img.png" alt="">
+<!--<img onclick="onSound()" src="clock_tiktok_img.png" alt="">-->
 
 <p>
   <style>
 body {
-	background: #000
+    /*background: #000*/
+	background: rgb(212,193,219)
 }
 
 .clock {
@@ -129,8 +130,8 @@ body {
 	width: 4px;
 	height: 50px;
 	/*background: #fff;*/
-    background: rgb(170, 170, 170);
-	transform: translate(-50%, -100%)
+    background: rgb(136, 136, 136);
+    transform: translate(-50%, -100%)
 }
 
 .fat-hand {
@@ -138,7 +139,7 @@ body {
 	height: 77px;
 	border-radius: 10px;
 	/*background: #fff;*/
-    background: rgb(170, 170, 170);
+    background: rgb(136, 136, 136);
 	transform: translate(-50%, -100%) translateY(-18px)
 }
 
@@ -169,13 +170,14 @@ body {
 }
 
 .minute-line {
-	background: #fff;
-    /*background: rgb(241, 241, 241);*/
+    /*background: #fff;*/
+    background: rgb(77, 77, 77);
 	width: 1px;
 	height: 9px;
 	transform: translate(-50%, -100%) translateY(-131px);
 	opacity: .34
 }
+
 </style>
 <div class="fill">
 <div class="reference"></div>
@@ -200,20 +202,20 @@ body {
 </div>
 </div>
 <script>
-let audio = new Audio('./clock_tiktok.mp3')
-audio.loop = true
-let sound = false
-const onSound = () => {
-  sound = !sound
-}
+// let audio = new Audio('./clock_tiktok.mp3')
+// audio.loop = true
+// let sound = false
+// const onSound = () => {
+//   sound = !sound
+// }
 
 // 设置定时器每隔一秒时间执行一次
-setInterval(function () {
-  if (sound == false) {
-    audio.pause()   //暂停音频
-  }
-  sound && audio.play()  //播放音频
-}, 1000);
+// setInterval(function () {
+//   if (sound == false) {
+//     audio.pause()   //暂停音频
+//   }
+//   sound && audio.play()  //播放音频
+// }, 1000);
 
 
 var clock = document.querySelector('#utility-clock')
