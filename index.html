@@ -232,7 +232,8 @@ function utilityClock(container) {
 	var minuteElement = container.querySelector('.minute')
 	var secondElement = container.querySelector('.second')
 	var minute = function(n) {
-      return n % 15 == 0 ? minuteText(n) : minuteLine(n)
+      // return n % 15 == 0 ? minuteText(n) : minuteLine(n)
+      return minuteLine(n)
 	}
 	var minuteText = function(n) {
 		var element = document.createElement('div')
@@ -249,7 +250,11 @@ function utilityClock(container) {
 		var element = document.createElement('div')
 		element.className = 'element minute-line'
 		rotate(anchor, n)
-        if (n % 5 == 0) {
+        // if (n % 5 == 0) {
+        //   anchor.appendChild(element)
+        //   dynamic.appendChild(anchor)
+        // }
+        if (n % 15 == 0) {
           anchor.appendChild(element)
           dynamic.appendChild(anchor)
         }
