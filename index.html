@@ -250,14 +250,14 @@ function utilityClock(container) {
 		var element = document.createElement('div')
 		element.className = 'element minute-line'
 		rotate(anchor, n)
-        // if (n % 5 == 0) {
-        //   anchor.appendChild(element)
-        //   dynamic.appendChild(anchor)
-        // }
-        if (n % 15 == 0) {
+        if (n % 5 == 0) {
           anchor.appendChild(element)
           dynamic.appendChild(anchor)
         }
+        // if (n % 15 == 0) {
+        //   anchor.appendChild(element)
+        //   dynamic.appendChild(anchor)
+        // }
 	}
 	var hour = function(n) {
 		var element = document.createElement('div')
